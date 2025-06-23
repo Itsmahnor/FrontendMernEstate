@@ -25,7 +25,7 @@ const DeleteUser = async () => {
   if (!confirmDelete) return;
 
   try {
-    const res = await fetch(`https://backendmernestate-production.up.railway.app/api/user/delete/${id}`, {
+    const res = await fetch(`https://backendmernestate-production-8366.up.railway.app/api/user/delete/${id}`, {
       method: "DELETE",
       credentials: "include"
     });
@@ -51,7 +51,7 @@ const handleDelete = async (listingId) => {
   if (!confirm) return;
 
   try {
-    const res = await axios.delete(`https://backendmernestate-production.up.railway.app/api/listing/delete/${listingId}`, {
+    const res = await axios.delete(`https://backendmernestate-production-8366.up.railway.app/api/listing/delete/${listingId}`, {
       withCredentials: true,
     });
 
@@ -109,7 +109,7 @@ const handleDelete = async (listingId) => {
 
 const getListing = async () => {
   try {
-    const res = await axios.get(`https://backendmernestate-production.up.railway.app/api/listing/getList/${id}`, {
+    const res = await axios.get(`https://backendmernestate-production-8366.up.railway.app/api/listing/getList/${id}`, {
       withCredentials: true,
     });
 

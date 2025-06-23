@@ -7,11 +7,12 @@ export default function Contact({listing}) {
  const onChange = (e) =>{
     setmessage(e.target.value)
  }
+
 console.log(landload)
  useEffect(()=>{
 const fetchLandlord = async ()=>{
     try {
-        const res = await fetch(`https://backendmernestate-production.up.railway.app/api/user/${listing.userRef}`);
+        const res = await fetch(`https://backendmernestate-production-8366.up.railway.app/api/user/${listing.userRef}`);
         const data =await  res.json();
         setlandload(data)
     } catch (error) {

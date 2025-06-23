@@ -44,7 +44,7 @@ export default function SignUp() {
     }
 
     try {
-      const res = await fetch("https://backendmernestate-production.up.railway.app/api/auth/signup", {
+      const res = await fetch("https://backendmernestate-production-8366.up.railway.app/api/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
