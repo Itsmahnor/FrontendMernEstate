@@ -76,6 +76,8 @@ useEffect(() => {
       
        
       } else {
+        console.log("📦 Sending data to backend:", listingData);
+
         await axios.post('https://backendmernestate-production-8366.up.railway.app/api/listing/create', listingData);
       
          
