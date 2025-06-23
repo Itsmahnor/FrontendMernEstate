@@ -44,7 +44,7 @@ export default function SignIn() {
     }
 
     try {
-      const res = await fetch("/api/auth/signin", {
+      const res = await fetch("https://backendmernestate-production.up.railway.app/api/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

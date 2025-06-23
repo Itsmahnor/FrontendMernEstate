@@ -15,7 +15,7 @@ const dispatch = useDispatch();
 
     
       const result = await signInWithPopup(auth, provider);
-       const res = await fetch('/api/auth/google', {
+       const res = await fetch('https://backendmernestate-production.up.railway.app/api/auth/google', {
         method: 'POST',
         credentials: 'include',
         headers: {

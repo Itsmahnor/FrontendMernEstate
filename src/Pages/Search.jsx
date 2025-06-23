@@ -38,7 +38,7 @@ export default function Search() {
           }
         });
 
-        const res = await fetch(`/api/listing/get?${params.toString()}`);
+        const res = await fetch(`https://backendmernestate-production.up.railway.app/api/listing/get?${params.toString()}`);
         const data = await res.json();
         setListings(data);
       } catch (error) {
