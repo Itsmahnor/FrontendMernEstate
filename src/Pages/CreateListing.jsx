@@ -61,32 +61,53 @@ useEffect(() => {
     setUploadedImages((prev) => prev.filter((img) => img.name !== filename));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const listingData = {
-      ...formData,
-      imageUrls: uploadedImages.map((img) => img.url),
-      userRef: userId,
-    };
-    try {
-      if (id) {
-        await axios.put(`https://backendmernestate-production-8366.up.railway.app/api/listing/update/${id}`, listingData, {
-          withCredentials: true,
-        });
-      
-       
-      } else {
-        console.log("📦 Sending data to backend:", listingData);
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-        await axios.post('https://backendmernestate-production-8366.up.railway.app/api/listing/create', listingData);
-      
-         
-      }
-navigate(`/listing/${id}`)
-    } catch (err) {
-      toast.error(`Submit failed `);
-    }
+  const listingData = {
+    ...formData,
+    imageUrls: uploadedImages.map((img) => img.url),
+    userRef: userId,
   };
+
+  try {
+    let res;
+
+    if (id) {
+      // Update existing listing
+      res = await axios.put(
+        `https://backendmernestate-production-8366.up.railway.app/api/listing/update/${id}`,
+        listingData,
+        { withCredentials: true }
+      );
+      toast.success('Listing updated successfully!');
+      navigate(`/listing/${id}`);
+    } else {
+      // Create new listing
+      res = await axios.post(
+        'https://backendmernestate-production-8366.up.railway.app/api/listing/create',
+        listingData,
+        { withCredentials: true }
+      );
+      toast.success('Listing created successfully!');
+      navigate(`/listing/${res.data._id}`);
+    }
+
+  } catch (err) {
+    const errData = err.response?.data;
+
+    // Show generic or custom message
+    toast.error(errData?.message || 'Something went wrong');
+
+    // Show field-specific validation errors if present
+    if (errData?.errors && Array.isArray(errData.errors)) {
+      errData.errors.forEach((errorMsg) => toast.error(errorMsg));
+    }
+
+    console.log('❌ Backend error:', errData);
+  }
+};
+
 
   return (
     <main className='p-3 max-w-4xl mx-auto'>
