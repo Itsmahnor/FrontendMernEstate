@@ -19,7 +19,7 @@ export default function Listing() {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const response = await fetch(`https://backendmernestate-production-8366.up.railway.app/api/listing/single/${params.listingid}`, {
+        const response = await fetch(`https://backendmernestate-production.up.railway.app/api/listing/single/${params.listingid}`, {
           credentials: 'include',
         });
         const data = await response.json();

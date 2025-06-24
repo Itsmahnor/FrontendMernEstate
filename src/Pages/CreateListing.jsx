@@ -27,7 +27,7 @@ export default function CreateListing() {
 useEffect(() => {
   const fetchListing = async () => {
     try {
-      const res = await axios.get(`https://backendmernestate-production-8366.up.railway.app/api/listing/single/${id}`, {
+      const res = await axios.get(`https://backendmernestate-production.up.railway.app/api/listing/single/${id}`, {
         withCredentials: true,
       });
       setFormData(res.data);
@@ -48,7 +48,7 @@ useEffect(() => {
       form.append('images', files[i]);
     }
     try {
-      const res = await axios.post('https://backendmernestate-production-8366.up.railway.app/api/upload', form);
+      const res = await axios.post('https://backendmernestate-production.up.railway.app/api/upload', form);
    setUploadedImages((prev) => [...prev, ...res.data.images]);
 
       setFiles([]);
@@ -76,7 +76,7 @@ const handleSubmit = async (e) => {
     if (id) {
       // Update existing listing
       res = await axios.put(
-        `https://backendmernestate-production-8366.up.railway.app/api/listing/update/${id}`,
+        `https://backendmernestate-production.up.railway.app/api/listing/update/${id}`,
         listingData,
         { withCredentials: true }
       );
@@ -85,7 +85,7 @@ const handleSubmit = async (e) => {
     } else {
       // Create new listing
       res = await axios.post(
-        'https://backendmernestate-production-8366.up.railway.app/api/listing/create',
+        'https://backendmernestate-production.up.railway.app/api/listing/create',
         listingData,
         { withCredentials: true }
       );
