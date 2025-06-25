@@ -54,8 +54,8 @@ export default function Header() {
 
       {/* Navigation */}
       <ul className="flex gap-4 text-slate-200 text-sm sm:text-base font-medium">
-        <Link to="/" className="hover:underline underline-offset-4 cursor-pointer transition hidden sm:inline">Home</Link>
-        <Link to="/about" className="hover:underline underline-offset-4 cursor-pointer transition hidden sm:inline">About</Link>
+        <Link to="/" className="hover:underline underline-offset-4 cursor-pointer transition  sm:inline">Home</Link>
+        <Link to="/about" className="hover:underline underline-offset-4 cursor-pointer transition  sm:inline">About</Link>
       {!avator?( clicked? (
           <Link to="/signIn" className="hover:underline underline-offset-4 cursor-pointer transition" onClick={() => dispatch(isClick())}>
             Sign In
