@@ -74,14 +74,14 @@ const handleDelete = async (listingId) => {
 
   const { username, email, password } = formData;
 
-  // ✅ Field validation
-  if (!username || !email || !password) {
+ 
+  if ( !email || !password) {
     toast.error("All fields are required!");
     return;
   }
 
   try {
-    const res = await fetch(`/api/user/update/${id}`, {
+    const res = await fetch(`https://backendmernestate-production.up.railway.app/api/user/update/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
